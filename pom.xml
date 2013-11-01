@@ -70,13 +70,34 @@
 			<version>1.0.0</version>
 			<scope>provided</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.elasticsearch</groupId>
-			<artifactId>elasticsearch</artifactId>
-			<version>0.90.1</version>
+			<artifactId>elasticsearch-hadoop</artifactId>
+			<version>1.3.0.M1</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>cascading-local</artifactId>
+					<groupId>cascading</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>joda-time</artifactId>
+					<groupId>joda-time</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>cascading-hadoop</artifactId>
+					<groupId>cascading</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>hive-service</artifactId>
+					<groupId>org.apache.hive</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>pig</artifactId>
+					<groupId>org.apache.pig</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
-
 
 	</dependencies>
 
