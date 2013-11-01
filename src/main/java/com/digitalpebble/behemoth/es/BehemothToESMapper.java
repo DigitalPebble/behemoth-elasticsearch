@@ -84,8 +84,8 @@ public class BehemothToESMapper extends MapReduceBase implements
 
 	@Override
 	public void configure(JobConf conf) {
-		includeMetadata = conf.getBoolean("solr.metadata", true);
-		includeAnnotations = conf.getBoolean("solr.annotations", true);
+		includeMetadata = conf.getBoolean("es.metadata", true);
+		includeAnnotations = conf.getBoolean("es.annotations", true);
 		if (includeAnnotations)
 			populateMapping(conf);
 	}

@@ -17,38 +17,21 @@ package com.digitalpebble.behemoth.es;
  * limitations under the License.
  */
 
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Map.Entry;
-
-import org.apache.commons.lang.StringUtils;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.MapWritable;
-import org.apache.hadoop.io.Text;
-import org.apache.hadoop.io.Writable;
 import org.apache.hadoop.mapred.FileInputFormat;
 import org.apache.hadoop.mapred.JobClient;
 import org.apache.hadoop.mapred.JobConf;
-import org.apache.hadoop.mapred.MapReduceBase;
-import org.apache.hadoop.mapred.Mapper;
-import org.apache.hadoop.mapred.OutputCollector;
-import org.apache.hadoop.mapred.Reporter;
 import org.apache.hadoop.mapred.SequenceFileInputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 import org.elasticsearch.hadoop.mr.ESOutputFormat;
-import org.elasticsearch.hadoop.util.WritableUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.digitalpebble.behemoth.Annotation;
 import com.digitalpebble.behemoth.BehemothConfiguration;
-import com.digitalpebble.behemoth.BehemothDocument;
 
 /**
  * Sends annotated documents to ElasticSearch for indexing
@@ -74,7 +57,7 @@ public class ESIndexerJob extends Configured implements Tool {
 	public int run(String[] args) throws Exception {
 
 		if (args.length != 1) {
-			String syntax = "com.digitalpebble.solr.ESIndexerJob input";
+			String syntax = "com.digitalpebble.behemoth.ESIndexerJob input";
 			System.err.println(syntax);
 			return -1;
 		}
