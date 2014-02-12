@@ -27,7 +27,7 @@ import org.apache.hadoop.mapred.JobConf;
 import org.apache.hadoop.mapred.SequenceFileInputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
-import org.elasticsearch.hadoop.mr.ESOutputFormat;
+import org.elasticsearch.hadoop.mr.EsOutputFormat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -81,7 +81,7 @@ public class ESIndexerJob extends Configured implements Tool {
 
 		// job.set("es.resource", "radio/artists"); // index used for storing
 		// data
-		job.setOutputFormat(ESOutputFormat.class); // use dedicated output
+		job.setOutputFormat(EsOutputFormat.class); // use dedicated output
 													// format
 
 		FileInputFormat.addInputPath(job, inputPath);
